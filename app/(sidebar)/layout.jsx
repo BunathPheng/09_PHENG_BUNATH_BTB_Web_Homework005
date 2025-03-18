@@ -1,7 +1,13 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import '../globals.css';
+
 import Sidebar from "@/components/Sidebar";
 import Search from "@/components/Search";
+import ButtonType from "@/components/ButtonType";
+import SelectCategoriesPage from "@/components/SelectCategoriesPage";
+import PathBasedVisibility from "@/components/PathBasedVisibility";
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,25 +37,18 @@ export default function RootLayout({ children }) {
           <div className="col-span-3">
             <Sidebar />
           </div>
-          <div className="col-span-9 mt-10 pr-10 overflow-auto no-scrollbar">
+          <div className="col-span-9 mt-10 pr-10 pl-2 overflow-auto no-scrollbar">
             <Search />
             <div className="h-full bg-white rounded-3xl mt-10">
               <div className="p-10">
+                <PathBasedVisibility />
                 <div className="border-b-1 pb-5 border-[#409aa5] flex justify-between items-center">
-                  <button className="bg-[#f5f7f8] p-3 rounded-xl font-bold text-[#409aa5]">
-                    All Books
-                  </button>
-                  {/* <form class="max-w-sm w-64">
-                    <select id="countries" class="bg-gray-100 rounded-xl border-none  text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                      <option selected>select categories</option>
-                      <option value="US">United States</option>
-                      <option value="CA">Canada</option>
-                      <option value="FR">France</option>
-                      <option value="DE">Germany</option>
-                    </select>
-                  </form> */}
+                  <ButtonType />
+                  <div className="hide-on-home">
+                    <SelectCategoriesPage />
+                  </div>
                 </div>
-              {children}
+                {children}
               </div>
             </div>
           </div>

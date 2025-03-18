@@ -45,8 +45,8 @@ export default function Sidebar() {
             alt="author avatar"
           />
           <div className="space-y-2 text-center">
-            <h3 className="text-black text-lg font-medium">BaBy Jonh</h3>
-            <p className="text-indigo-400">BunathPheng@gmail.com</p>
+            <h3 className="text-blue-600 text-lg font-medium">Pheng Bunath</h3>
+            <p className="text-black text-xl">BunathPheng@gmail.com</p>
           </div>
         </div>
 
@@ -57,7 +57,7 @@ export default function Sidebar() {
 
             return (
 
-              <li key={item.href} className={`m-3 p-3 rounded-lg transition-all duration-300 ${active ? 'bg-slate-100 font-bold rounded-xl' : 'hover:bg-gray-100  rounded-xl'}`}>
+              <li key={item.href} className={`m-3 p-3 px-3 rounded-lg transition-all duration-300 ${active ? 'bg-slate-100 font-bold rounded-xl' : 'hover:bg-gray-100  rounded-xl'}`}>
                 <Link href={item.href} className="flex items-center text-gray-700 hover:text-gray-900">
                   <Icon color={item.isBottom ? "#718096" : "#ff0000"} variant="Outline" size={25} />
                   <span className={`ml-4 text-md ${active ? 'text-gray-900' : 'text-gray-700'}`}>{item.name}</span>

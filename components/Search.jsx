@@ -3,11 +3,11 @@ import React from 'react'
 export default function Search() {
     return (
         <>
-            <div className="relative">
+            <div className="relative mt-3">
                 <input
                     type="text"
                     name="q"
-                    className="w-full border-0 focus:outline-none h-12 p-4 rounded-full dark:text-gray-800 dark:border-gray-700 dark:bg-gray-200"
+                    className="w-full border-0 focus:outline-none h-12 p-4  rounded-full dark:text-gray-800 dark:border-gray-700 dark:bg-gray-200"
                     placeholder="search"
                 />
 
