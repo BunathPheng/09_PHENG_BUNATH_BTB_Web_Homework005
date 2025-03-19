@@ -19,7 +19,7 @@ if (searchTitle) {
   return (
     <>
       <div className="border-b-1 pb-5 border-[#409aa5] flex justify-between items-center">
-        <ButtonTypeServer searchParams={categorybook} />
+        <ButtonTypeServer searchParams={categorybook} type={""} />
         <SelectCategoriesPage />
       </div>
       <BookCategoriesClient books={data} getfilter={filteredBooks} searchbook={searchBook}/>

@@ -10,6 +10,7 @@ export default async function OldSchoolCartoons({ params, searchParams }) {
     const cartoons = await getAllCatoons();
     const categoryCatoonById = searchParams?.genre || null;
     const searchCatoonsByTitle  = searchParams?.search || null;
+
     console.log(searchCatoonsByTitle);
     const  getCartoonsByCategory = await getAllCartoonByGenre(categoryCatoonById);
     const   dataBySearchCatoons = await getAllCatoonsByTitle(searchCatoonsByTitle);
@@ -17,7 +18,7 @@ export default async function OldSchoolCartoons({ params, searchParams }) {
     return (
         <>
             <div className="border-b-1 pb-5 border-[#409aa5] flex justify-between items-center">
-                <ButtonTypeServer searchParams={categoryCatoonById} />
+                <ButtonTypeServer searchParams={categoryCatoonById} type={"cartoons"} />
                 <SelectCategoriesPage />
             </div>
             <CartoonCategoriesPage cartoons={cartoons} getCategoeisCatoons={getCartoonsByCategory} searchCatoons={dataBySearchCatoons}/>
