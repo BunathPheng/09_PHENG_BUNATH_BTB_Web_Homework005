@@ -6,7 +6,7 @@ export default function Breadcrumb({ rule, thing }) {
     return (
         <nav className="flex items-center overflow-x-auto whitespace-nowrap max-w-6xl px-6 pt-10 mx-auto">
             <div className="flex items-center gap-3">
-                <Link href={"/"} >
+                <Link href={"/"} className='hover:text-[#087e8b]'>
                     <div className="flex items-center gap-3">
                         <Home2 color={"#0b3954"} variant='Outline' size={22} />
                         <p className='text-xl font-bold'>Home</p>
@@ -24,7 +24,7 @@ export default function Breadcrumb({ rule, thing }) {
                         clipRule="evenodd"
                     />
                 </svg>
-                <Link href={`/${rule === "Old-school-cartoons" ? "old-school-cartoons" : "book-categories"}`}>
+                <Link className='hover:text-[#087e8b]' href={`/${rule === "Old-school-cartoons" ? "old-school-cartoons" : "book-categories"}`}>
                     <div className="flex items-center gap-3">
                         <Book color={"#0b3954"} variant="Outline" size={22} />
                         <p className="text-xl font-bold">{rule}</p>

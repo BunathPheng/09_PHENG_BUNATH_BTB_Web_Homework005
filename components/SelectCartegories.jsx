@@ -6,20 +6,10 @@ export default function SelectCategories({ ca, ba }) {
     const pathname = usePathname();
     const  router =  useRouter();
 
-    // Log props and pathname for debugging
-    console.log("pathname:", pathname);
-    console.log("ca:", ca);
-    console.log("ba:", ba);
-
-    // Check the current route
     const isBookCategories = pathname.includes("/book-categories");
     const isOldSchoolCartoons = pathname.includes("/old-school-cartoons");
-
-    // Determine which data to use based on the route
     const dataToDisplayCa = isOldSchoolCartoons && ca;
     const dataToDisplayBa = isBookCategories && ba;
-
-
 
     return (
         <>
@@ -31,7 +21,7 @@ export default function SelectCategories({ ca, ba }) {
                             id="categories"
                             className="bg-gray-100 rounded-xl border-none text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         >
-                            <option value="">Filter categories</option>
+                            <option value="" disabled selected>Filter Categories</option>
                             {dataToDisplayCa.payload.map((item, index) => (
                                 <option key={index} value={item.id}>
                                     {item.cartoon_genre}
@@ -49,7 +39,7 @@ export default function SelectCategories({ ca, ba }) {
                             id="categories"
                             className="bg-gray-100 rounded-xl border-none text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         >
-                            <option value="">Filter categories</option>
+                           <option value="" disabled selected>Filter Categories</option>
                             {dataToDisplayBa.payload.map((item, index) => (
                                 <option key={index} value={item.id}>
                                     {item.book_cate_name}

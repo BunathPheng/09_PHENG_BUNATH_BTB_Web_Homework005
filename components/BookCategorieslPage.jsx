@@ -1,30 +1,38 @@
 "use client";
 
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import BooksCard from '@/components/BooksCard';
+import { useSearchParams } from 'next/navigation';
+import GetBookfilter from './GetBookFilter';
+import GetBookAll from './GetBookAll';
+import GetBookSearch from './GetBookSearch';
 
-export default function BookCategoriesClient({ books }) {
-  const pathname = usePathname();
-  const trimmedPathname = pathname.startsWith('/') ? pathname.slice(1) : pathname;
-  const encodeForUrl = (str) => {
-    return encodeURIComponent(str).replace(/%20/g, '+');
-  };  
+export default function BookCategoriesClient({ books, getfilter, searchbook }) {
+  const searchParams = useSearchParams();
+  const query = searchParams.get("query");
+  const searchtTitle = searchParams.get("search");
+
+  const filteredSearchBooks = searchtTitle
+    ? searchbook.filter(book => 
+        String(book.book_title.toLowerCase()).includes(String(searchtTitle.toLowerCase()))
+      )
+    : [];
 
   return (
-    <div className="mt-10 grid grid-cols-2 gap-10">
-      {books.map((book) => (
-        <Link
-        href={`/read-full-article/${book.id}?type=book&name=${encodeForUrl(trimmedPathname)}&title=${encodeForUrl(book.book_title)}`}
-        key={`book-${book.id}`}
-      >
-        <BooksCard
-          image={book.image}
-          title={book.book_title}
-          des={book.description}
-        />
-      </Link>
-      ))}
-    </div>
+    <>
+      {query ? (
+        <GetBookfilter filter={getfilter} />
+      ) : (
+        <>
+          {searchtTitle ? (
+            filteredSearchBooks.length > 0 ? (
+              <GetBookSearch search={filteredSearchBooks} />
+            ) : (
+              ""
+            )
+          ) : (
+            <GetBookAll bookAll={books} /> 
+          )}
+        </>
+      )}
+    </>
   );
 }

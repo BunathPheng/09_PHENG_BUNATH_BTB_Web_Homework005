@@ -2,11 +2,12 @@ import Breadcrumb from '@/components/Breadcrumb';
 import CardDetail from '@/components/CardDetail';
 import getAllBookById from '@/services/getAllBookById';
 import getAllCartoonById from '@/services/getAllCartoonsById';
-import { notFound } from 'next/navigation';
+import { notFound} from 'next/navigation';
 
 export default async function DetailsPage({ params, searchParams }) {
+
   const id = params?.Id; 
-  const type = searchParams?.type || '';
+  const type = searchParams?.type || '';  
   let data;
   if (type === 'book') {
     data = await getAllBookById(id);
