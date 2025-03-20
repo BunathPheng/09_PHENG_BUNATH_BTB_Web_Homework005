@@ -8,8 +8,8 @@ import React from 'react';
 
 export default async function OldSchoolCartoons({ params, searchParams }) {
     const cartoons = await getAllCatoons();
-    const categoryCatoonById = searchParams?.genre || null;
-    const searchCatoonsByTitle  = searchParams?.search || null;
+    const categoryCatoonById = (await searchParams)?.genre || null;
+    const searchCatoonsByTitle  = (await searchParams)?.search || null;
 
     console.log(searchCatoonsByTitle);
     const  getCartoonsByCategory = await getAllCartoonByGenre(categoryCatoonById);

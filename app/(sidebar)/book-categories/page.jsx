@@ -5,8 +5,8 @@ import getAllBooks from '@/services/getAllBooks';
 
 export default async function BookCategoriesPage({ params, searchParams }) {
   const data = await getAllBooks();
-  const categorybook = searchParams?.query || null;
-  const searchTitle  =  searchParams?.search || null;
+  const categorybook = (await searchParams)?.query || null;
+  const searchTitle  = (await searchParams)?.search || null;
   let searchBook = data;
 if (searchTitle) {
   searchBook = data.filter(book => 

@@ -17,11 +17,12 @@ export default function SelectCategories({ ca, ba }) {
                 dataToDisplayCa && (
                     <form className="max-w-sm w-64">
                         <select
+                        defaultValue={""}
                         onChange={(e) => router.replace(`/old-school-cartoons?genre=${e.target.value}`)}
                             id="categories"
                             className="bg-gray-100 rounded-xl border-none text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         >
-                            <option value="" disabled selected>Filter Categories</option>
+                            <option value="" disabled >Filter Categories</option>
                             {dataToDisplayCa.payload.map((item, index) => (
                                 <option key={index} value={item.id}>
                                     {item.cartoon_genre}
@@ -35,11 +36,12 @@ export default function SelectCategories({ ca, ba }) {
                 dataToDisplayBa && (
                     <form className="max-w-sm w-64">
                         <select
+                        defaultValue={""}
                         onChange={(e) => router.replace(`/book-categories?query=${e.target.value}`)}
                             id="categories"
                             className="bg-gray-100 rounded-xl border-none text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         >
-                           <option value="" disabled selected>Filter Categories</option>
+                           <option value="" disabled >Filter Categories</option>
                             {dataToDisplayBa.payload.map((item, index) => (
                                 <option key={index} value={item.id}>
                                     {item.book_cate_name}

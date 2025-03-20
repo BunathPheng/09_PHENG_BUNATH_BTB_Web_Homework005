@@ -1,7 +1,7 @@
 import { Eye } from 'iconsax-react';
 
 export default function CardCartoons({ image, title, views, year }) {
-    const newYear = year?.split("-")[0] || "Unknown"; // Prevents errors if `year` is undefined
+    const newYear = year?.split("-")[0] || "Unknown";
 
     return (
         <div className="rounded-xl max-w-xs">
